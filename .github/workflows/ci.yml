@@ -106,7 +106,7 @@ jobs:
             os: macos-latest,
             host: arm64,
             buildtype: release,
-            args: --cross-file arm64-apple-macos12.txt -Ddefault_library=static -Dbuild_osx_bundle=true -Dlocal_boost=true -Dvapoursynth=enabled --force-fallback-for=ffms2
+            args: --cross-file arm64-apple-macos12.txt -Ddefault_library=static -Dbuild_osx_bundle=true -Dlocal_boost=true -Dvapoursynth=enabled --force-fallback-for=ffms2,hunspell
           }
 
     steps:
@@ -179,7 +179,7 @@ jobs:
               ${armbrew} install "$(${armbrew} --cache --bottle-tag=${arch} "$1")"  || true   # we don't care if post-install steps like fc-cache fail
           }
 
-          for package in libass zlib fftw hunspell ; do
+          for package in libass zlib fftw; do
               install_package ${package}
           done
 
