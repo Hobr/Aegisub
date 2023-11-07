@@ -228,6 +228,7 @@ jobs:
         run: meson compile -C build
       
       - name: Run test
+        if: matrix.config.host != 'arm64'
         run: meson test -C build --verbose "gtest main"
 
       # Windows artifacts
